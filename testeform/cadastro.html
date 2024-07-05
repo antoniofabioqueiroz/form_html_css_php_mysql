@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilo.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container_form">
+        <form action="./cadastro.php" method="post">
+            <fieldset>
+                <h2> Dados Pessoais</h2>
+                
+                <label>Nome Completo:<input name="nome_comp" type="text"  required></label>
+                <label>idade:<input name="idade" type="number" min="0" max="100" required></label>
+              
+            </fieldset>
+            <fieldset>
+                <h2>Dados Profissionais</h2>
+                <label>Profissão:<input name="profissao" type="text"  required></label>
+            </fieldset>
+            <div class="botao">
+                <br>
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

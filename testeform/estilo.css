@@ -1,3 +1,44 @@
+body{
+    
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);    
+    display: flex;
+    flex-direction: column;
+}
+
+.cont_princ{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+.containerPHP{
+    width: 350px;
+    background-color: #f5ca0a;
+    display: flex;
+    gap: 300px;
+    flex-direction: row;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px;
+    
+    padding: 1%;
+}
+
+.containerPHP:hover{
+    background-color: #fffb00;
+}
+
+fieldset{
+background-color: #f5ca0a;
+border-radius: 5%;
+}
+
+input{
+    background-color: rgb(0, 0, 0);
+    color: #fafafa;
+}
+
 .container_form
 {
 display: flex;
@@ -6,6 +47,7 @@ width: 350px;
 margin-left: auto;
 margin-right: auto;    
 }
+
 label{
 display: flex;
 flex-direction: column; 
@@ -13,4 +55,36 @@ text-align: center;
 }
 .botao{
     text-align: center;
-}    
+}
+button{
+    background-color: chocolate;
+    border: none;
+    color: white;
+    border-radius: 10%;
+    height: 30px; 
+}
+
+button:hover{
+    background-color: aquamarine;
+    height: 30px;
+    border-radius: 10%;
+}
+.container_DB{
+    text-align: center;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    background-color: #fafafa;
+    
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    
+  }

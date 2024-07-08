@@ -2,7 +2,7 @@
 
 include("./conexao.php"); //ABRE CONEXÃO COM O BANCO DE DADOS
 
-$consulta = "SELECT NOME_COMP, IDADE, PROFISSAO FROM  testeform.tb_pessoa ORDER BY ID DESC";
+$consulta = "SELECT * FROM  testeform.tb_pessoa ORDER BY ID DESC";
 $result = $conn->query($consulta);
 ?> 
 
@@ -13,6 +13,7 @@ $result = $conn->query($consulta);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./estilo.css">
     <title>Document</title>
+
 </head>
 <body>
     <div class="container_DB">
@@ -26,26 +27,42 @@ $result = $conn->query($consulta);
               echo"<th>Idade</th>";
               echo"<th>Profissão</th>";
               echo"<th>Editar</th>";
-              echo"<th>Excluir</th>";
             echo"</tr>";
 
             //ESCREVE OS DADOS LINHA À LINHA VINDOS DO BANCO.
             while($row = $result->fetch_assoc()) 
             {   
-                echo"<tr>";
+                  echo"<tr>";
                   echo"<td>".$row["NOME_COMP"]."</td>";
                   echo"<td>".$row["IDADE"]."</td>";
                   echo"<td>".$row["PROFISSAO"]."</td>";
-                  echo"<td><button>Editar</button></td>";
-                  echo"<td><button>Excluir</button></td>";
-                echo"</tr>";
+                  ?>
+                  <td><form method="post"><button type="submit"><input type="hidden" name="excluir" value="<?= $id ?>">&#10005;</button></form></td>
+                  
+            <?php 
+
+if(isset($_POST['excluir'])){
+    $id = $row["ID"];
+    $sql2     = "delete from testeform.tb_pessoa where ID='$id'";
+    $qry2     = mysqli_query($conn,$sql2);
+}
+?>  
+                  </td>
+                </tr>
+<?php
             }
             echo "</table>";
-        }             
+        }
     ?>
     <div class="botao">
     <button><a href="cadastro.html"> Voltar </button>
     </div>
     </div>
+
 </body>
+
+<script>
+            
+</script>
+
 </html>

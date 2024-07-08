@@ -69,6 +69,9 @@ button:hover{
     height: 30px;
     border-radius: 10%;
 }
+button:visited{
+    color: white;
+}
 .container_DB{
     text-align: center;
 }
@@ -88,3 +91,25 @@ table {
   tr:nth-child(even) {
     
   }
+  
+  a{
+    
+  }
+
+ /* link que ainda não foi acessado */
+a {
+    text-decoration: none;
+    color: white;
+ }
+ /* link que foi visitado */
+ a:visited {
+     color: white;
+ }
+ /* quando o ponteiro do mouse passa no link */
+ a:hover {
+     color: white;
+ }
+ /* quando o link for selecionado */
+ a:active {
+     color: white;
+ }

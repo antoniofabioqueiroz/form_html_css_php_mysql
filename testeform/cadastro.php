@@ -25,4 +25,4 @@ if ($conn->query($sql) === TRUE) {
 $consulta = "SELECT NOME_COMP, IDADE, PROFISSAO FROM testeform.tb_pessoa ORDER by ID DESC";
 $result = $conn->query($consulta);
 ?>
-<button><a href="listar_usu.php"> Listar Registros </button>
+<button><a href="listar_usu_table.php"> Listar Registros </button>

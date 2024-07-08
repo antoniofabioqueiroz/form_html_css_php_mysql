@@ -1,10 +1,7 @@
 <?php
 
 include("./conexao.php"); //ABRE CONEXÃO COM O BANCO DE DADOS
-
-$consulta = "SELECT NOME_COMP, IDADE, PROFISSAO FROM  testeform.tb_pessoa ORDER BY ID DESC";
-$result = $conn->query($consulta);
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +13,11 @@ $result = $conn->query($consulta);
 </head>
 <body>
     <div class="container_DB">
+    
     <?php
+    $consulta = "SELECT * FROM  testeform.tb_pessoa ORDER BY ID DESC";
+    $result = $conn->query($consulta);
+
     //VERIFICA SE A ATD DE LINHA É 0 SE FOR, NÃO FAZER NADA.
         if ($result->num_rows > 0) 
         {  
@@ -37,12 +38,25 @@ $result = $conn->query($consulta);
                   echo"<td>".$row["IDADE"]."</td>";
                   echo"<td>".$row["PROFISSAO"]."</td>";
                   echo"<td><button>Editar</button></td>";
-                  echo"<td><button>Excluir</button></td>";
-                echo"</tr>";
             }
-            echo "</table>";
-        }             
+        }
     ?>
+                  <td><form method="post"><button type="submit"><input type="hidden" name="excluir" value=<?php= $row["ID"] ?>>Excluir</button></form></td>       
+        </tr>
+        </table>
+    <?php
+
+if(isset($_POST['excluir']) && filter_input(INPUT_POST, 'excluir', FILTER_VALIDATE_INT) !== false){
+
+    $id = mysqli_real_escape_string($con, $_POST['excluir']);
+
+    $sql2     = "delete from testeform.tb_pessoa where ID='$id'";
+    $qry2     = mysqli_query($conn,$sql2);
+
+}
+
+?>
+
     <div class="botao">
     <button><a href="cadastro.html"> Voltar </button>
     </div>

@@ -2,7 +2,7 @@
 
 include("./conexao.php"); //ABRE CONEXÃO COM O BANCO DE DADOS
 
-$consulta = "SELECT NOME_COMP, IDADE, PROFISSAO FROM testeform.tb_pessoa";
+$consulta = "SELECT NOME_COMP, IDADE, PROFISSAO FROM  testeform.tb_pessoa ORDER BY ID DESC";
 $result = $conn->query($consulta);
 ?> 
 
@@ -25,6 +25,8 @@ $result = $conn->query($consulta);
               echo"<th>Nome Completo</th>";
               echo"<th>Idade</th>";
               echo"<th>Profissão</th>";
+              echo"<th>Editar</th>";
+              echo"<th>Excluir</th>";
             echo"</tr>";
 
             //ESCREVE OS DADOS LINHA À LINHA VINDOS DO BANCO.
@@ -34,6 +36,8 @@ $result = $conn->query($consulta);
                   echo"<td>".$row["NOME_COMP"]."</td>";
                   echo"<td>".$row["IDADE"]."</td>";
                   echo"<td>".$row["PROFISSAO"]."</td>";
+                  echo"<td><button>Editar</button></td>";
+                  echo"<td><button>Excluir</button></td>";
                 echo"</tr>";
             }
             echo "</table>";
